@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
+import * as Animatable from 'react-native-animatable'
 import { useNavigation } from "@react-navigation/native";
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -27,9 +28,9 @@ const HomeScreen = () => {
           resizeMode="cover"
           source={require("../assets/cover.jpg")}
         >
-          <View className="py-16 px-4 flex-col flex-1 ">
-            <Text className="text-2xl">It's a Big World </Text>
-            <View className="mt-4">
+          <View  className="py-16 px-4 flex-col flex-1 ">
+            <Animatable.Text easing="ease-in-out" animation="fadeInLeftBig" className="text-2xl">It's a Big World </Animatable.Text>
+            <Animatable.View className="mt-4" animation="fadeInRightBig" >
               <Text className="text-6xl font-bold">Out There,</Text>
               <Text className="text-6xl font-bold">Go Explore</Text>
               {/* <Button
@@ -39,8 +40,8 @@ const HomeScreen = () => {
                 color="#20B08D"
                 accessibilityLabel="Learn more about this purple button"
               /> */}
-            </View>
-            <View className="absolute bottom-2 right-0 left-0 mx-8 flex-col gap-y-4">
+            </Animatable.View>
+            <Animatable.View easing="ease-in-out" animation="fadeInUpBig" className="absolute bottom-2 right-0 left-0 mx-8 flex-col gap-y-4">
               <TouchableOpacity onPress={()=>setCount(count+1)} className="bg-[#20B08D] rounded-full p-4  ">
                 <Text className="font-semibold text-white text-center text-xl">
                   Get Started
@@ -49,7 +50,7 @@ const HomeScreen = () => {
               <TouchableOpacity>
                 <Text className="text-white text-center font-semibold">Privacy Policy</Text>
               </TouchableOpacity>
-            </View>
+            </Animatable.View>
             {/* <TouchableOpacity className="bg-[#20B08D] rounded-full p-4 mx-8 absolute bottom-2 right-0 left-0">
               <Text className="font-semibold text-white text-center text-xl">
                 Get Started
